@@ -17,9 +17,9 @@ const SingIn = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setDefaultState();
     try {
       await auth.signInWithEmailAndPassword(email, password);
+      setDefaultState();
     } catch (error) {
       console.log(error.message);
     }
