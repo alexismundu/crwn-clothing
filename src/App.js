@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import "./App.css";
 
@@ -10,6 +11,7 @@ import SingInAndSingUpPage from "./pages/sign-in-and-sing-up";
 import Header from "./components/header";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
 const App = ({ setCurrentUser, currentUser }) => {
   let unsubscribeFromAuth = useRef(null);
@@ -50,8 +52,8 @@ const App = ({ setCurrentUser, currentUser }) => {
   );
 };
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
