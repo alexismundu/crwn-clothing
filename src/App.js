@@ -8,6 +8,8 @@ import "./App.css";
 import HomePage from "./pages/homepage";
 import ShopPage from "./pages/shop";
 import SingInAndSingUpPage from "./pages/sign-in-and-sing-up";
+import CheckoutPage from "./pages/checkout";
+
 import Header from "./components/header";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -47,6 +49,7 @@ const App = ({ setCurrentUser, currentUser }) => {
             currentUser ? <Redirect to="/" /> : <SingInAndSingUpPage />
           }
         />
+        <Route exact path="/checkout" component={CheckoutPage} />
       </Switch>
     </div>
   );
