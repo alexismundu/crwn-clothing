@@ -11,7 +11,6 @@ import {
 
 const CollectionPreview = ({ title, items, routeName }) => {
   let match = useRouteMatch();
-  console.log(match);
   return (
     <CollectionPreviewContainer>
       <TitleContainer to={`${match.url}/${routeName}`}>
